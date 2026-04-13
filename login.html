@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APL Beleg – Weihnachtsgeschenke-Shop (Login)</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vue global build (wichtig: kein type="module") -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="group-info">
+      <div class="group-title">Gruppe G10</div>
+      <div>Michele Leon Locke | s88688</div>
+      <div>Kevin Fiek | s88870</div>
+    </div>
+    <div class="brand">
+      <div class="emoji">🎄</div>
+      <div class="title">Weihnachts-Shop</div>
+    </div>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="cart.html">Warenkorb</a>
+      <a href="login.html">Login</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <!-- Vue mount point -->
+  <div id="page-login"></div>
+
+  <!-- Message bar -->
+  <div id="message-bar">
+    <div class="inner">
+      <span class="level" id="message-level"></span>
+      <span id="message-text"></span>
+      <button class="secondary" onclick="window.appMsg.clear()">OK</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/common.js"></script>
+
+  <!-- WICHTIG: auth.js MUSS als Modul geladen werden -->
+  <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

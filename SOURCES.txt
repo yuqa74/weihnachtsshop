@@ -1,0 +1,19 @@
+QUELLEN / REFERENZEN (für Doku, keine Fremdbilder eingebunden)
+
+1) Aufgabenstellung (HTW Dresden / EWA – Beleg: Weihnachtsgeschenke-Shop mit Vue.js)
+   - UBeleg_Shop_v25ok.pdf (vom Praktikum)
+
+2) Vue.js (Filter/Sortierung in computed)
+   - Vue Guide: Essentials → List Rendering → Displaying Filtered/Sorted Results
+     https://vuejs.org/guide/essentials/list.html
+
+3) Stripe Checkout
+   - API Reference: Create a Checkout Session (line_items.price_data.unit_amount in Cent)
+     https://docs.stripe.com/api/checkout/sessions/create
+   - Payments Guide: Accept a payment (Checkout Session flow)
+     https://docs.stripe.com/payments/accept-a-payment
+
+4) HTW Demo-Hinweis aus Aufgabenstellung:
+   - __STRIPE_DEMOS_v1 (Demo + Quellcode ZIP, speziell books.php als Mapping-Vorlage)
+
+- Stripe Demo ZIP (__STRIPE_DEMOS_2023.ZIP): stripe-php-master SDK lokal übernommen (kein Composer nötig)

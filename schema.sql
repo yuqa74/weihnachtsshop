@@ -1,0 +1,51 @@
+-- Minimal-Schema für den APL Beleg (MariaDB/MySQL)
+CREATE TABLE IF NOT EXISTS buecher (
+  ProduktID INT AUTO_INCREMENT PRIMARY KEY,
+  Produktcode VARCHAR(50),
+  Produkttitel VARCHAR(255) NOT NULL,
+  Autoname VARCHAR(100),
+  Verlagsname VARCHAR(100),
+  PreisNetto DECIMAL(10,2),
+  Mwstsatz DECIMAL(5,2),
+  PreisBrutto DECIMAL(10,2) NOT NULL,
+  Lagerbestand INT NOT NULL DEFAULT 0,
+  Kurzinhalt LONGTEXT,
+  Gewicht DECIMAL(6,2),
+  LinkGrafikdatei VARCHAR(255),
+  image VARCHAR(255),
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(64) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  role ENUM('user','admin') NOT NULL DEFAULT 'user',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NULL,
+  customer_name VARCHAR(255) NOT NULL,
+  customer_email VARCHAR(255) NOT NULL,
+  customer_address VARCHAR(512) NOT NULL,
+  total_price DECIMAL(10,2) NOT NULL,
+  vat_sum DECIMAL(10,2) NOT NULL,
+  stripe_session_id VARCHAR(255) NULL,
+  paid TINYINT(1) NOT NULL DEFAULT 0,
+  paid_at TIMESTAMP NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  book_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  unit_price DECIMAL(10,2) NOT NULL,
+  quantity INT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
